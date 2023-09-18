@@ -1145,7 +1145,7 @@ class OmnitureMeasurement
 	private function getDefaultPageURL()
 	{
 		if ($_SERVER['REQUEST_URI']) {
-			return ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+			return ($_SERVER['HTTPS'] ? 'https://' : 'https://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 		} else {
 			return '';
 		}
