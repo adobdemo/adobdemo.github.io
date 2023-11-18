@@ -1,0 +1,207 @@
+<style>
+
+  .atMT3Container {
+
+    border-radius: 1rem;
+
+    width: 100%;
+
+    padding: 24px 24px 12px 24px;
+
+    margin-top: 2rem;
+
+    background: #FBEDE0;
+
+    text-align: center;
+
+    position: relative;
+
+  }
+
+ 
+
+  .atMT3Container>div {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+  }
+
+ 
+
+  .atMT3Container>div>div>div {
+
+    margin-left: 24px;
+
+  }
+
+ 
+
+  .atMT3Container>div>div {
+
+    text-align: left;
+
+    display: flex;
+
+  }
+
+ 
+
+  .atMT3Heading1 {
+
+    position: absolute;
+
+    top: -2rem;
+
+    text-align: center;
+
+    width: 80%;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: 0;
+
+    justify-content: center;
+
+  }
+
+ 
+
+  .atMT3Container img {
+
+    width: 56px;
+
+    height: 45px;
+
+    margin-top: 15px;
+
+  }
+
+ 
+
+  .atMT3Heading2 {
+
+    color: #6B7280;
+
+    font-size: 14px;
+
+ 
+
+  }
+
+ 
+
+  .atMT3Close:hover {
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+  }
+
+ 
+
+  .atMT3Container p.atMT3Heading1 {
+
+    color: #4B5563;
+
+  }
+
+ 
+
+  .atMT3Container p.atMT3Desc {
+
+    color: #00875F;
+
+    font-weight: bold;
+
+  }
+
+ 
+
+  .atMT3Container button {
+
+    width: 100%;
+
+  }
+
+</style>
+
+ 
+
+<script>
+
+ 
+
+  var imgObj = document.createElement('img');
+
+  imgObj.src = 'https://cimage.adobe.com/hdfc/moneybag.png';
+
+ 
+
+  window.Flickerlessly = window.Flickerlessly || {}, function (t) { "use strict"; var i = function (t, n, a, o) { var i = "atNodeInserted" + t, r = [], e = ["", "-moz-", "-webkit-", "-ms-", "-o-"]; e.forEach(function (t, e) { r.push("@" + t + "keyframes " + i + " {from {opacity:0.99} to {opacity:1}}") }), r.push(n + "{"), e.forEach(function (t, e) { r.push(t + "animation-duration:0.001s;" + t + "animation-name:" + i + ";") }), r.push("}"); var s = document.getElementsByTagName("head")[0]; if (s) { var c = document.createElement("style"); c.setAttribute("type", "text/css"), c.styleSheet ? c.styleSheet.cssText = r.join("\n") : c.appendChild(document.createTextNode(r.join("\n"))), s.insertBefore(c, s.firstChild) } var l = function (t) { if (t.animationName === i && "object" == typeof t.target) { var e = !0 === o || !1 === o && null === t.target.getAttribute("data-flk-success"); u("('" + n + "') ready! Execute: " + e, t.target), "function" == typeof a && e ? (t.target.setAttribute("data-flk-success", i), !0 !== o && (["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.removeEventListener(t, l, !1) }), c && c.parentNode.removeChild(c)), a(t.target, u)) : u("Won't Callback", e, a) } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, l, !1) }) }, u = -1 !== window.location.href.indexOf("Debug=1") ? function () { Array.prototype.unshift.call(arguments, "FLK:"), console.info.apply(this, arguments) } : function () { }, r = Math.floor(1e3 * Math.random() + 1); t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var e = arguments[t], n = e.selector, a = e.success || null, o = e.persist || !1; i(r++, n, a, o) } } }(Flickerlessly);
+
+ 
+
+  var atTrack = atTrack || function (param) {
+
+    var data = { "__adobe": { "target": {} } };
+
+    data.__adobe.target['clicked'] = param;
+
+    try { alloy("sendEvent", { renderDecisions: false, decisionScopes: ["__view__"], data: data }); } catch (err) { }
+
+  }
+
+ 
+
+  adobeDataLayer.addEventListener("pageView", function () {
+
+    if (adobeDataLayer.getState()._hdfcbank.pageInfo.pageName != "en:nb:money_transfer:fund_transfer:success" && document.querySelector('.atMT3Container') != null) {
+
+      document.querySelector('.atMT3Container').remove();
+
+    }
+
+  })
+
+ 
+
+ 
+
+  Flickerlessly.onReady(
+
+    {
+
+      selector: 'bb-money-transfer bb-success-screen',
+
+      persist: true,
+
+      success: function (el) {
+
+        if (adobeDataLayer.getState()._hdfcbank.pageInfo.pageName == "en:nb:money_transfer:fund_transfer:success" && document.querySelector('.atMT3Container') == null) {
+
+          el.insertAdjacentHTML('afterend', '<div class="atMT3Container"> <div> <div> <img src="https://cimage.adobe.com/hdfc/moneybag.png"> <div> <h2>Transferring money frequently?</h2> <p class="atMT3Heading2">Just reduce the effort by scheduling payments for your upcoming transfers.</p> </div> </div> <a href="javascript:void(0)" onclick="document.querySelector(\'.reccuring-btn\').click()" style=" margin-bottom: 1rem; display: block; "> <button class="btn-primary btn btn-md" type="button"> Schedule Now </button></a> </div> </div>');
+
+          /*document.querySelector('.atMT3Close').addEventListener('click', function () {
+
+            document.querySelector('.atMT3Container').style.display = "none";
+
+            atTrack('MT3Close');
+
+          })*/
+
+ 
+
+        }
+
+      }
+
+    });
+
+</script>

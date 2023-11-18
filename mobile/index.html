@@ -68,6 +68,17 @@ function readCookie(name) {
 			digitalData.cart.productsInCart =  data.length;
 			console.log("items in cart"+data.length);
 	};
+	adobe.target.getOffer({
+	"mbox": "json_mbox",
+	"params": {},
+	"success": function(offer) {
+			console.log(offer[0].content[0].greeting);
+	},
+	"error": function(status, error) {
+		console.log('Error', status, error);
+	}
+	});
+
 	</script>
 <meta name="robots" content="noindex, nofollow">
 
